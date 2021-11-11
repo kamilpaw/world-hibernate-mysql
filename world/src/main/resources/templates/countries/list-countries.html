@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Countries</title>
+	<meta charset="utf-8">
+</head>
+
+<body>
+	<h3>List of countries:</h3>
+	<table border="1">
+		<thead>
+			<tr>
+				<th>Code</th>
+				<th>Name</th>
+				<th>Region</th>
+				<th>Surface Area</th>
+				<th>Independence Year</th>
+				<th>Population</th>
+				<th>Life Expectancy</th>
+				<th>GNP</th>
+				<th>GNPOld</th>
+				<th>Local Name</th>
+				<th>Government Form</th>
+				<th>Head Of State</th>
+				<th>Capital</th>
+				<th>Code2</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="tempCountry : ${countries}">
+				<td th:text="${tempCountry.code}">
+				<td th:text="${tempCountry.name}">
+				<td th:text="${tempCountry.region}">
+				<td th:text="${tempCountry.surfaceArea}">
+				<td th:text="${tempCountry.indepYear}">
+				<td th:text="${tempCountry.population}">
+				<td th:text="${tempCountry.lifeExpectancy}">
+				<td th:text="${tempCountry.gNP}">
+				<td th:text="${tempCountry.gNPOld}">
+				<td th:text="${tempCountry.localName}">
+				<td th:text="${tempCountry.governmentForm}">
+				<td th:text="${tempCountry.headOfState}">
+				<td th:text="${tempCountry.capital}">
+				<td th:text="${tempCountry.code2}">
+			</tr>
+		</tbody>
+	
+	</table>
+
+</body>
+
+</html>
