@@ -2,32 +2,57 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
+
 	<title>Languages</title>
 	<meta charset="utf-8">
+	<link type="text/css"
+		  rel="stylesheet"
+		  th:href="@{/css/style1.css}" />
+		  
 </head>
 
 <body>
-	<h3>List of languages:</h3>
-	<table border="1">
-		<thead>
-			<tr>
-				<th>Country Code</th>
-				<th>Language</th>
-				<th>Is Official</th>
-				<th>Percentage</th>
-			</tr>
-		</thead>
-		
-		<tbody>
-			<tr th:each="tempLanguage : ${languages}">
-				<td th:text="${tempLanguage.countryCode.code}">
-				<td th:text="${tempLanguage.language}">
-				<td th:text="${tempLanguage.isOfficial}">
-				<td th:text="${tempLanguage.percentage}">
-			</tr>
-		</tbody>
+	<div id="wrapper">
+		<div id="header">
+			<h2>LIST OF LANGUAGES</h2>
+			</div>
+	</div>
+			
+	<p>
+		<a th:href="@{/}">Back to Start Page</a>
+	</p>
 	
-	</table>
+	<div id="container">
+	
+		<div id="content">
+			
+			<table border="1">
+			
+				<thead>
+					<tr>
+						<th>Country</th>
+						<th>Country Code</th>
+						<th>Language</th>
+						<th>Is Official</th>
+						<th>Percentage</th>
+					</tr>
+				</thead>
+			
+				<tbody>
+					<tr th:each="tempLanguage : ${languages}">
+						<td th:text="${tempLanguage.countryCode.name}">
+						<td th:text="${tempLanguage.countryCode.code}">
+						<td th:text="${tempLanguage.language}">
+						<td th:text="${tempLanguage.isOfficial}">
+						<td th:text="${tempLanguage.percentage}">
+					</tr>
+				</tbody>
+	
+			</table>
+			
+		</div>
+	
+	</div>
 
 </body>
 
