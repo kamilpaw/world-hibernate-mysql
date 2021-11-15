@@ -24,4 +24,10 @@ public class CityServiceImp implements CityService{
 		return cityRepository.findAll();
 	}
 
+	@Override
+	public List<City> searchBy(String theName, String theCountry) {
+		return cityRepository.findByNameContainsAndCountryNameContainsAllIgnoreCase
+				(theName, theCountry);
+	}
+
 }

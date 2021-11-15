@@ -23,6 +23,31 @@
 		<a th:href="@{/}">Back to Start Page</a>
 	</p>
 	
+	
+		<form action="#" th:action="@{/countries/search}"
+		  method="GET">	
+	
+		<input type="search"
+			   name="code"
+			   placeholder="Code"
+		 />
+
+		<input type="search"
+			   name="name"
+			   placeholder="Name"
+			 />
+		
+		<input type="search"
+			   name="region"
+			   placeholder="Region"
+			 />
+		
+		<button type="submit">Search</button>
+							   
+	</form>
+	
+	
+	
 	<div id="container">
 	
 		<div id="content">

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kpaw.world.entity.City;
 import com.kpaw.world.service.CityService;
@@ -25,5 +26,19 @@ public class CityController {
 		List<City> theCities = cityService.findAll();
 		theModel.addAttribute("cities", theCities);
 		return "cities/list-cities";
+	}
+	
+	@GetMapping("/search")
+	public String search(@RequestParam("name") String theName,
+						@RequestParam("country") String theCountry,
+						Model theModel
+						) {
+		if (theName.trim().isEmpty() && theCountry.isEmpty()) {
+			return "redirect:/cities/list";
+		}else {
+		List<City> theCities = cityService.searchBy(theName, theCountry);
+		theModel.addAttribute("cities", theCities);
+		return "cities/list-cities";
+		}
 	}
 }

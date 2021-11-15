@@ -8,5 +8,5 @@ public interface CountryLanguageService {
 	
 	public List<CountryLanguage> findAll();
 	
-
+	public List<CountryLanguage> searchBy(String theLanguage, String theCountry);
 }

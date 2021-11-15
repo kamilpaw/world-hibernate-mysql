@@ -23,5 +23,10 @@ public class CountryServiceImp implements CountryService {
 		return countryRepository.findAll();
 	}
 
+	@Override
+	public List<Country> searchBy(String theCode, String theName, String theRegion) {
+		return countryRepository.findByCodeContainsAndNameContainsAndRegionContainsAllIgnoreCase(theCode, theName, theRegion);
+	}
+
 
 }

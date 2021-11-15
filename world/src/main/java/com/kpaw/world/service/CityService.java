@@ -7,5 +7,6 @@ import com.kpaw.world.entity.City;
 public interface CityService {
 	
 	public List<City> findAll();
-
+	
+	public List<City> searchBy(String theName, String theCountry);
 }

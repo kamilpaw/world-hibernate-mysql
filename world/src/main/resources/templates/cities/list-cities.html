@@ -23,6 +23,26 @@
 		<a th:href="@{/}">Back to Start Page</a>
 	</p>
 	
+		<form action="#" th:action="@{/cities/search}" method="GET">
+		
+			<input type="search"
+					name="name"
+					placeholder="Name"
+					/>
+					
+			<input type="search"
+					name="country"
+					placeholder="Country"
+					/>
+			
+			<button type="submit">Search</button>
+		
+		</form>
+	
+	
+	
+	
+	
 	<div id="container">
 	
 		<div id="content">
@@ -33,6 +53,7 @@
 					<tr>
 						<th>Id</th>
 						<th>Name</th>
+						<th>Country</th>
 						<th>Country Code</th>
 						<th>District</th>
 						<th>Population</th>
@@ -43,6 +64,7 @@
 					<tr th:each="tempCity : ${cities}">
 						<td th:text="${tempCity.id}">
 						<td th:text="${tempCity.name}">
+						<td th:text="${tempCity.country.name}">
 						<td th:text="${tempCity.country.code}">
 						<td th:text="${tempCity.district}">
 						<td th:text="${tempCity.population}">

@@ -23,4 +23,9 @@ public CountryLanguageServiceImp(CountryLanguageRepository theCountryLanguageRep
 		return countryLanguageRepository.findAll();
 	}
 
+	@Override
+	public List<CountryLanguage> searchBy(String theLanguage, String theCountry) {
+		return countryLanguageRepository.findByLanguageContainsAndCountryCodeNameContainsAllIgnoreCase(theLanguage, theCountry);
+	}
+
 }
