@@ -30,4 +30,19 @@ public class CityServiceImp implements CityService{
 				(theName, theCountry);
 	}
 
+	@Override
+	public List<City> orderByName() {
+		return cityRepository.findAllByOrderByNameAsc();
+	}
+
+	@Override
+	public List<City> orderByCountry() {
+		return cityRepository.findAllByOrderByCountryNameAsc();
+	}
+
+	@Override
+	public List<City> orderByPopulation() {
+		return cityRepository.findAllByOrderByPopulationAsc();
+	}
+
 }

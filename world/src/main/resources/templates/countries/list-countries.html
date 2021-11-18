@@ -56,10 +56,14 @@
 			
 				<thead>
 					<tr>
-						<th>Code</th>
-						<th>Name</th>
-						<th>Region</th>
-						<th>Surface Area</th>
+						<th>
+							<a th:href="@{/countries/sortByCode}">Code</a>	
+						<th>
+							<a th:href="@{/countries/sortByName}">Name</a>	
+						<th>
+							<a th:href="@{/countries/sortByRegion}">Region</a>					
+						<th>
+							<a th:href="@{/countries/sortBySurface}">Surface</a>	
 						<th>Independence Year</th>
 						<th>Population</th>
 						<th>Life Expectancy</th>

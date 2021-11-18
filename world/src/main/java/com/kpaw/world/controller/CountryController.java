@@ -39,7 +39,33 @@ public class CountryController {
 			theModel.addAttribute("countries", theCountries);
 			return "countries/list-countries";
 		}
-
 	}
-
+	
+	@GetMapping("sortByRegion")
+	public String sortByRegion(Model theModel) {
+		List<Country> theCountries = countryService.orderByRegion();
+		theModel.addAttribute("countries", theCountries);
+		return "countries/list-countries";
+	}
+	
+	@GetMapping("sortByName")
+	public String sortByName(Model theModel) {
+		List<Country> theCountries = countryService.orderByName();
+		theModel.addAttribute("countries", theCountries);
+		return "countries/list-countries";
+	}
+	
+	@GetMapping("sortBySurface")
+	public String sortBySurface(Model theModel) {
+		List<Country> theCountries = countryService.orderBySurface();
+		theModel.addAttribute("countries", theCountries);
+		return "countries/list-countries";
+	}
+	
+	@GetMapping("sortByCode")
+	public String sortByCode(Model theModel) {
+		List<Country> theCountries = countryService.orderByCode();
+		theModel.addAttribute("countries", theCountries);
+		return "countries/list-countries";
+	}
 }

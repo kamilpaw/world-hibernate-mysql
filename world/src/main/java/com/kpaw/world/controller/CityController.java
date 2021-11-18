@@ -41,4 +41,33 @@ public class CityController {
 		return "cities/list-cities";
 		}
 	}
+	
+	@GetMapping("/orderByName")
+	public String sortByName(Model theModel) {
+		List<City> theCities = cityService.orderByName();
+		theModel.addAttribute("cities", theCities);
+		return "cities/list-cities";
+	}
+	
+	@GetMapping("/orderByCountry")
+	public String sortByCountry(Model theModel) {
+		List<City> theCities = cityService.orderByCountry();
+		theModel.addAttribute("cities", theCities);
+		return "cities/list-cities";
+	}
+		
+		
+	@GetMapping("/orderByPopulation")
+	public String sortByPopulation(Model theModel) {
+		List<City> theCities = cityService.orderByPopulation();
+		theModel.addAttribute("cities", theCities);
+		return "cities/list-cities";
+	}
 }
+
+
+
+
+
+
+

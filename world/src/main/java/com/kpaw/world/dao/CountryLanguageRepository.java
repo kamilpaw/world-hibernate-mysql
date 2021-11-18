@@ -11,6 +11,8 @@ public interface CountryLanguageRepository extends JpaRepository<CountryLanguage
 
 	public List<CountryLanguage> findByLanguageContainsAndCountryCodeNameContainsAllIgnoreCase
 	(String theLanguage, String theCountry);
-	
 
+	public List<CountryLanguage> findAllByOrderByCountryCodeNameAsc();
+	
+	public List<CountryLanguage> findAllByOrderByLanguageAsc();
 }

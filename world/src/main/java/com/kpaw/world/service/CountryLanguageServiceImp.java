@@ -28,4 +28,14 @@ public CountryLanguageServiceImp(CountryLanguageRepository theCountryLanguageRep
 		return countryLanguageRepository.findByLanguageContainsAndCountryCodeNameContainsAllIgnoreCase(theLanguage, theCountry);
 	}
 
+	@Override
+	public List<CountryLanguage> orderByName() {
+		return countryLanguageRepository.findAllByOrderByCountryCodeNameAsc();
+	}
+
+	@Override
+	public List<CountryLanguage> orderByLanguage() {
+		return countryLanguageRepository.findAllByOrderByLanguageAsc();
+	}
+
 }

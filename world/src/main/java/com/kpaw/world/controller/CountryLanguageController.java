@@ -40,5 +40,19 @@ public class CountryLanguageController {
 			return "/languages/list-languages";
 		}
 	}
+	
+	@GetMapping("/orderByCountry")
+	public String sortByCountry(Model theModel) {
+		List<CountryLanguage> countryLanguages = countryLanguageService.orderByName();
+		theModel.addAttribute("languages", countryLanguages);
+		return "/languages/list-languages";
+	}
+	
+	@GetMapping("/orderByLanguage")
+	public String sortByLanguage(Model theModel) {
+		List<CountryLanguage> countryLanguages = countryLanguageService.orderByLanguage();
+		theModel.addAttribute("languages", countryLanguages);
+		return "/languages/list-languages";
+	}
 
 }

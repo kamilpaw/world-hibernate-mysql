@@ -52,11 +52,14 @@
 				<thead>
 					<tr>
 						<th>Id</th>
-						<th>Name</th>
-						<th>Country</th>
+						<th>
+							<a th:href="@{/cities/orderByName}">Name</a>
+						<th>
+							<a th:href="@{/cities/orderByCountry}">Country</a>
 						<th>Country Code</th>
 						<th>District</th>
-						<th>Population</th>
+						<th>
+							<a th:href="@{/cities/orderByPopulation}">Population</a>
 					</tr>
 				</thead>
 

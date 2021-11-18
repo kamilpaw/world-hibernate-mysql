@@ -37,9 +37,7 @@
 			<button type="submit">Search</button>
 		
 		</form>
-	
-	
-	
+
 	<div id="container">
 	
 		<div id="content">
@@ -48,9 +46,11 @@
 			
 				<thead>
 					<tr>
-						<th>Country</th>
+						<th>
+						<a th:href="@{/languages/orderByCountry}">Country</a>
 						<th>Country Code</th>
-						<th>Language</th>
+						<th>
+						<a th:href="@{/languages/orderByLanguage}">Language</a>
 						<th>Is Official</th>
 						<th>Percentage</th>
 					</tr>

@@ -28,5 +28,25 @@ public class CountryServiceImp implements CountryService {
 		return countryRepository.findByCodeContainsAndNameContainsAndRegionContainsAllIgnoreCase(theCode, theName, theRegion);
 	}
 
+	@Override
+	public List<Country> orderByRegion() {
+		return countryRepository.findAllByOrderByRegionAsc();
+	}
+
+	@Override
+	public List<Country> orderByName() {
+		return countryRepository.findAllByOrderByNameAsc();
+	}
+
+	@Override
+	public List<Country> orderBySurface() {
+		return countryRepository.findAllByOrderBySurfaceAreaAsc();
+	}
+
+	@Override
+	public List<Country> orderByCode() {
+		return countryRepository.findAllByOrderByCodeAsc();
+	}
+
 
 }
