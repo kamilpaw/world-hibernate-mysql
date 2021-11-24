@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+
+<head>
+	<title>Advanced Search</title>
+	
+	<meta charset="utf-8">
+	
+	<link type="text/css"
+		rel="stylesheet"
+		th:href="@{/css/style1.css}"/>
+		
+	<link type="text/css"
+		  rel="stylesheet"
+		 th:href="@{/css/style2.css}"/>
+		
+</head>
+
+
+<body>
+	<div id="wrapper">
+		<div id="header">
+				<h2>Find Country</h2>
+		</div>
+	</div>
+
+	<div id="container">
+	
+		<div id="content">
+	
+		<h3>Advanced Search (all fields required)</h3>
+
+	<form action="#" th:action="@{/countries/advSearch}"
+		  method="GET">	
+		  
+		<table border="1">
+			<tbody>
+				<tr>
+					<td><label>Name:</label></td>
+					<td>
+						<input type="search"
+				   				name="name"
+				   				placeholder="Name"/>
+
+				<tr>
+					<td><label>Region:</label></td>
+					<td>
+						<input type="search"
+							   name="region"
+							   placeholder="Region"/>						 
+							 
+				<tr>
+					<td><label>Surface:</label></td>
+					<td>
+						<input type="search"
+							   name="surfaceFrom"
+							   placeholder="From"/>
+					<td>
+						<input type="search"
+							   name="surfaceTo"
+							   placeholder="To"/>
+							 
+				<tr>
+					<td><label>Independence Year:</label></td>
+					<td>	 
+						<input type="search"
+							   name="indFrom"
+							   placeholder="From"/>
+					<td>	 
+						<input type="search"
+							   name="indTo"
+							   placeholder="To"/>	
+				<tr>
+					<td><label>Population:</label></td>
+					<td>
+						<input type="search"
+							   name="popFrom"
+							   placeholder="From"/>
+					<td>
+						<input type="search"
+							   name="popTo"
+							   placeholder="To"/>  
+							   
+				<tr>
+					<td><label>Life Expectancy:</label></td>
+					<td> 
+						<input type="search"
+							   name="liExFrom"
+							   placeholder="From"/>
+					<td> 
+						<input type="search"
+							   name="liExTo"
+							   placeholder="To"/>	 
+				<tr>
+					<td>
+						<button type="submit">Search</button>
+					</td>
+					
+				</tbody>
+				
+			</table>	
+									   
+	</form>
+		</div>
+		
+</div>
+	<p>
+			<a th:href="@{/countries/list}">Back to List</a>
+		</p>
+
+</body>
+
+</html>

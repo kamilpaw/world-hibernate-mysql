@@ -29,9 +29,8 @@ public class CountryLanguageController {
 	}
 
 	@GetMapping("/search")
-	public String search(@RequestParam("language") String theLanguage,
-						@RequestParam("country") String theCountry,
-						Model theModel) {
+	public String search(@RequestParam("language") String theLanguage, @RequestParam("country") String theCountry,
+			Model theModel) {
 		if (theLanguage.trim().isEmpty() && theCountry.trim().isEmpty()) {
 			return "redirect:/languages/list";
 		} else {
@@ -40,14 +39,14 @@ public class CountryLanguageController {
 			return "/languages/list-languages";
 		}
 	}
-	
+
 	@GetMapping("/orderByCountry")
 	public String sortByCountry(Model theModel) {
 		List<CountryLanguage> countryLanguages = countryLanguageService.orderByName();
 		theModel.addAttribute("languages", countryLanguages);
 		return "/languages/list-languages";
 	}
-	
+
 	@GetMapping("/orderByLanguage")
 	public String sortByLanguage(Model theModel) {
 		List<CountryLanguage> countryLanguages = countryLanguageService.orderByLanguage();

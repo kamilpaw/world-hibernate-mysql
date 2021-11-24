@@ -24,7 +24,7 @@
 	</p>
 	
 	
-		<form action="#" th:action="@{/countries/search}"
+	<form action="#" th:action="@{/countries/search}"
 		  method="GET">	
 	
 		<input type="search"
@@ -46,6 +46,11 @@
 							   
 	</form>
 	
+	<p>
+		<a th:href="@{/countries/advSearchSite}">
+			<button type="button">Advanced Search</button>
+		</a>
+	</p>
 	
 	
 	<div id="container">

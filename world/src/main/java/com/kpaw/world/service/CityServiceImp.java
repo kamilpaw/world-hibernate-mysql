@@ -9,16 +9,16 @@ import com.kpaw.world.dao.CityRepository;
 import com.kpaw.world.entity.City;
 
 @Service
-public class CityServiceImp implements CityService{
-	
+public class CityServiceImp implements CityService {
+
 	private CityRepository cityRepository;
 
 	@Autowired
 	public CityServiceImp(CityRepository theCityRepository) {
 		this.cityRepository = theCityRepository;
-		
+
 	}
-	
+
 	@Override
 	public List<City> findAll() {
 		return cityRepository.findAll();
@@ -26,8 +26,7 @@ public class CityServiceImp implements CityService{
 
 	@Override
 	public List<City> searchBy(String theName, String theCountry) {
-		return cityRepository.findByNameContainsAndCountryNameContainsAllIgnoreCase
-				(theName, theCountry);
+		return cityRepository.findByNameContainsAndCountryNameContainsAllIgnoreCase(theName, theCountry);
 	}
 
 	@Override

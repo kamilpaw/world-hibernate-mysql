@@ -40,32 +40,67 @@ public class CountryController {
 			return "countries/list-countries";
 		}
 	}
-	
-	@GetMapping("sortByRegion")
+
+	@GetMapping("/advSearch")
+	public String advSearch(@RequestParam("name") String theName, @RequestParam("region") String theRegion,
+			@RequestParam("surfaceFrom") String theSurfaceFrom, @RequestParam("surfaceTo") String theSurfaceTo,
+			@RequestParam("indFrom") String theIndFrom, @RequestParam("indTo") String theIndTo,
+			@RequestParam("popFrom") String thePopFrom, @RequestParam("popTo") String thePopTo,
+			@RequestParam("liExFrom") String theLiExFrom, @RequestParam("liExTo") String theLiExTo, Model theModel) {
+
+		if (theName.trim().isEmpty() && theRegion.trim().isEmpty() && theSurfaceFrom.trim().isEmpty()
+				&& theSurfaceTo.trim().isEmpty() && theIndFrom.trim().isEmpty() && theIndTo.trim().isEmpty()
+				&& thePopFrom.trim().isEmpty() && thePopTo.trim().isEmpty() && theLiExFrom.trim().isEmpty()
+				&& theLiExTo.trim().isEmpty()) {
+			return "redirect:/countries/list";
+
+		} else {
+
+			try {
+				List<Country> theCountries = countryService.advancedSearch(theName, theRegion, theSurfaceFrom,
+						theSurfaceTo, theIndFrom, theIndTo, thePopFrom, thePopTo, theLiExFrom, theLiExTo);
+				theModel.addAttribute("countries", theCountries);
+				return "countries/list-countries";
+
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+
+			return "countries/advanced-search";
+		}
+
+	}
+
+	@GetMapping("/sortByRegion")
 	public String sortByRegion(Model theModel) {
 		List<Country> theCountries = countryService.orderByRegion();
 		theModel.addAttribute("countries", theCountries);
 		return "countries/list-countries";
 	}
-	
+
 	@GetMapping("sortByName")
 	public String sortByName(Model theModel) {
 		List<Country> theCountries = countryService.orderByName();
 		theModel.addAttribute("countries", theCountries);
 		return "countries/list-countries";
 	}
-	
-	@GetMapping("sortBySurface")
+
+	@GetMapping("/sortBySurface")
 	public String sortBySurface(Model theModel) {
 		List<Country> theCountries = countryService.orderBySurface();
 		theModel.addAttribute("countries", theCountries);
 		return "countries/list-countries";
 	}
-	
-	@GetMapping("sortByCode")
+
+	@GetMapping("/sortByCode")
 	public String sortByCode(Model theModel) {
 		List<Country> theCountries = countryService.orderByCode();
 		theModel.addAttribute("countries", theCountries);
 		return "countries/list-countries";
+	}
+
+	@GetMapping("/advSearchSite")
+	public String advSearchSite() {
+		return "countries/advanced-search";
 	}
 }

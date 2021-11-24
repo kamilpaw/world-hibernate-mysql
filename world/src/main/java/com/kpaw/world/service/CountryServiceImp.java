@@ -10,12 +10,12 @@ import com.kpaw.world.entity.Country;
 
 @Service
 public class CountryServiceImp implements CountryService {
-	
+
 	private CountryRepository countryRepository;
-	
+
 	@Autowired
 	public CountryServiceImp(CountryRepository theCountryRepository) {
-		countryRepository = theCountryRepository; 
+		countryRepository = theCountryRepository;
 	}
 
 	@Override
@@ -25,7 +25,8 @@ public class CountryServiceImp implements CountryService {
 
 	@Override
 	public List<Country> searchBy(String theCode, String theName, String theRegion) {
-		return countryRepository.findByCodeContainsAndNameContainsAndRegionContainsAllIgnoreCase(theCode, theName, theRegion);
+		return countryRepository.findByCodeContainsAndNameContainsAndRegionContainsAllIgnoreCase(theCode, theName,
+				theRegion);
 	}
 
 	@Override
@@ -48,5 +49,21 @@ public class CountryServiceImp implements CountryService {
 		return countryRepository.findAllByOrderByCodeAsc();
 	}
 
+	@Override
+	public List<Country> advancedSearch(String theName, String theRegion, String surfaceFrom, String surfaceTo,
+			String indFrom, String indTo, String popFrom, String popTo, String liExFrom, String liExTo) {
+		Double theSurfaceFrom = Double.valueOf(surfaceFrom);
+		Double theSurfaceTo = Double.valueOf(surfaceTo);
+		Short theIndFrom = Short.valueOf(indFrom);
+		Short theIndTo = Short.valueOf(indTo);
+		Integer thePopFrom = Integer.valueOf(popFrom);
+		Integer thePopTo = Integer.valueOf(popTo);
+		Double theLiExFrom = Double.valueOf(liExFrom);
+		Double theLiExTo = Double.valueOf(liExTo);
+		return countryRepository
+				.findByNameContainsAndRegionContainsAndSurfaceAreaGreaterThanEqualAndSurfaceAreaLessThanEqualAndIndepYearGreaterThanEqualAndIndepYearLessThanEqualAndPopulationGreaterThanEqualAndPopulationLessThanEqualAndLifeExpectancyGreaterThanEqualAndLifeExpectancyLessThanEqual(
+						theName, theRegion, theSurfaceFrom, theSurfaceTo, theIndFrom, theIndTo, thePopFrom, thePopTo,
+						theLiExFrom, theLiExTo);
+	}
 
 }

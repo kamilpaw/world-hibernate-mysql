@@ -9,14 +9,14 @@ import com.kpaw.world.dao.CountryLanguageRepository;
 import com.kpaw.world.entity.CountryLanguage;
 
 @Service
-public class CountryLanguageServiceImp implements CountryLanguageService{
+public class CountryLanguageServiceImp implements CountryLanguageService {
 
-private CountryLanguageRepository countryLanguageRepository;
+	private CountryLanguageRepository countryLanguageRepository;
 
-@Autowired
-public CountryLanguageServiceImp(CountryLanguageRepository theCountryLanguageRepository) {
-	this.countryLanguageRepository = theCountryLanguageRepository;
-}
+	@Autowired
+	public CountryLanguageServiceImp(CountryLanguageRepository theCountryLanguageRepository) {
+		this.countryLanguageRepository = theCountryLanguageRepository;
+	}
 
 	@Override
 	public List<CountryLanguage> findAll() {
@@ -25,7 +25,8 @@ public CountryLanguageServiceImp(CountryLanguageRepository theCountryLanguageRep
 
 	@Override
 	public List<CountryLanguage> searchBy(String theLanguage, String theCountry) {
-		return countryLanguageRepository.findByLanguageContainsAndCountryCodeNameContainsAllIgnoreCase(theLanguage, theCountry);
+		return countryLanguageRepository.findByLanguageContainsAndCountryCodeNameContainsAllIgnoreCase(theLanguage,
+				theCountry);
 	}
 
 	@Override

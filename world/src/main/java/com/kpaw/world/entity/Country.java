@@ -29,6 +29,7 @@ public class Country {
 	@Column(name = "IndepYear")
 	private Short indepYear;
 
+	
 	@Column(name = "Population")
 	private Integer population;
 
