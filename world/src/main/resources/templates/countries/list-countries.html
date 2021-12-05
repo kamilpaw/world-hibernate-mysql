@@ -84,20 +84,20 @@
 		
 				<tbody>
 					<tr th:each="tempCountry : ${countries}">
-						<td th:text="${tempCountry.code}">
-						<td th:text="${tempCountry.name}">
-						<td th:text="${tempCountry.region}">
-						<td th:text="${tempCountry.surfaceArea}">
-						<td th:text="${tempCountry.indepYear}">
-						<td th:text="${tempCountry.population}">
-						<td th:text="${tempCountry.lifeExpectancy}">
-						<td th:text="${tempCountry.gNP}">
-						<td th:text="${tempCountry.gNPOld}">
-						<td th:text="${tempCountry.localName}">
-						<td th:text="${tempCountry.governmentForm}">
-						<td th:text="${tempCountry.headOfState}">
-						<td th:text="${tempCountry.capital}">
-						<td th:text="${tempCountry.code2}">
+						<td th:text="${tempCountry?.code}">
+						<td th:text="${tempCountry?.name}">
+						<td th:text="${tempCountry?.region}">
+						<td th:text="${tempCountry?.surfaceArea}">
+						<td th:text="${tempCountry?.indepYear}">
+						<td th:text="${tempCountry?.population}">
+						<td th:text="${tempCountry?.lifeExpectancy}">
+						<td th:text="${tempCountry?.gNP}">
+						<td th:text="${tempCountry?.gNPOld}">
+						<td th:text="${tempCountry?.localName}">
+						<td th:text="${tempCountry?.governmentForm}">
+						<td th:text="${tempCountry?.headOfState}">
+						<td th:text="${tempCountry?.capital?.id}">
+						<td th:text="${tempCountry?.code2}">
 					</tr>
 				</tbody>
 		

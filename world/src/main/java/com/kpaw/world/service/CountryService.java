@@ -20,4 +20,6 @@ public interface CountryService {
 
 	public List<Country> advancedSearch(String theName, String theRegion, String surfaceFrom, String surfaceTo,
 			String indFrom, String indTo, String popFrom, String popTo, String liExFrom, String liExTo);
+
+	public Country findById(String theCountryCode);
 }

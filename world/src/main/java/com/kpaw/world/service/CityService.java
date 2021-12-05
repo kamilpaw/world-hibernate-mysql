@@ -15,4 +15,10 @@ public interface CityService {
 	public List<City> orderByCountry();
 
 	public List<City> orderByPopulation();
+
+	public void save(City theCity);
+
+	public void deleteCityById(int theId);
+
+	public City findById(int theId);
 }

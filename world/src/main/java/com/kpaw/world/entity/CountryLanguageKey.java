@@ -21,8 +21,22 @@ public class CountryLanguageKey implements Serializable {
 		return countryCode;
 	}
 
+	public void setCountryCode(Country countryCode) {
+		this.countryCode = countryCode;
+	}
+
 	public String getLanguage() {
 		return language;
 	}
+
+	public void setLanguage(String language) {
+		this.language = language;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	
 
 }

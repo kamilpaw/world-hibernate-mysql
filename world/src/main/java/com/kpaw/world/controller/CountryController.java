@@ -46,7 +46,7 @@ public class CountryController {
 			@RequestParam("surfaceFrom") String theSurfaceFrom, @RequestParam("surfaceTo") String theSurfaceTo,
 			@RequestParam("indFrom") String theIndFrom, @RequestParam("indTo") String theIndTo,
 			@RequestParam("popFrom") String thePopFrom, @RequestParam("popTo") String thePopTo,
-			@RequestParam("liExFrom") String theLiExFrom, @RequestParam("liExTo") String theLiExTo, Model theModel) {
+			@RequestParam("liExFrom") String theLiExFrom, @RequestParam("liExTo") String theLiExTo, Model theModel) throws NullPointerException {
 
 		if (theName.trim().isEmpty() && theRegion.trim().isEmpty() && theSurfaceFrom.trim().isEmpty()
 				&& theSurfaceTo.trim().isEmpty() && theIndFrom.trim().isEmpty() && theIndTo.trim().isEmpty()
@@ -55,7 +55,7 @@ public class CountryController {
 			return "redirect:/countries/list";
 
 		} else {
-
+			
 			try {
 				List<Country> theCountries = countryService.advancedSearch(theName, theRegion, theSurfaceFrom,
 						theSurfaceTo, theIndFrom, theIndTo, thePopFrom, thePopTo, theLiExFrom, theLiExTo);
@@ -66,7 +66,7 @@ public class CountryController {
 				System.out.println(e.getMessage());
 			}
 
-			return "countries/advanced-search";
+			throw new NullPointerException();
 		}
 
 	}

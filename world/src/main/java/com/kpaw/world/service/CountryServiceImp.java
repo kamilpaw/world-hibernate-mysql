@@ -1,6 +1,7 @@
 package com.kpaw.world.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -52,6 +53,7 @@ public class CountryServiceImp implements CountryService {
 	@Override
 	public List<Country> advancedSearch(String theName, String theRegion, String surfaceFrom, String surfaceTo,
 			String indFrom, String indTo, String popFrom, String popTo, String liExFrom, String liExTo) {
+		try {
 		Double theSurfaceFrom = Double.valueOf(surfaceFrom);
 		Double theSurfaceTo = Double.valueOf(surfaceTo);
 		Short theIndFrom = Short.valueOf(indFrom);
@@ -64,6 +66,23 @@ public class CountryServiceImp implements CountryService {
 				.findByNameContainsAndRegionContainsAndSurfaceAreaGreaterThanEqualAndSurfaceAreaLessThanEqualAndIndepYearGreaterThanEqualAndIndepYearLessThanEqualAndPopulationGreaterThanEqualAndPopulationLessThanEqualAndLifeExpectancyGreaterThanEqualAndLifeExpectancyLessThanEqual(
 						theName, theRegion, theSurfaceFrom, theSurfaceTo, theIndFrom, theIndTo, thePopFrom, thePopTo,
 						theLiExFrom, theLiExTo);
+		} catch(Exception e) {
+			throw e;
+		}
+		
+	}
+
+	@Override
+	public Country findById(String theCountryCode) {
+		Optional<Country> result = countryRepository.findById(theCountryCode);
+		Country theCountry = null;
+		if (result.isPresent()) {
+			theCountry = result.get();
+		} else {
+			throw new RuntimeException("Did not find country code - " + theCountryCode);
+		}
+		
+		return theCountry;
 	}
 
 }

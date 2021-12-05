@@ -23,6 +23,12 @@
 		<a th:href="@{/}">Back to Start Page</a>
 	</p>
 	
+	<p>
+		<a th:href="@{/cities/addCity}">
+		<button type="submit">Add City</button>
+		</a>
+	</p>
+	
 		<form action="#" th:action="@{/cities/search}" method="GET">
 		
 			<input type="search"
@@ -67,6 +73,15 @@
 						<td th:text="${tempCity.country.code}">
 						<td th:text="${tempCity.district}">
 						<td th:text="${tempCity.population}">
+						<td>
+							<a th:href="@{/cities/updateCity(cityId = ${tempCity.id})}">
+								<button type="button">UPDATE CITY</button>
+							</a>
+						
+						<td>
+							<a th:href="@{/cities/deleteCity(cityId = ${tempCity.id})}">
+								<button type="submit">DELETE CITY</button>
+							</a>
 					</tr>
 				</tbody>
 			
