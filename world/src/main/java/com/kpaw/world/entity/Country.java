@@ -10,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Pattern;
 
 @Entity
 @Table(name = "country")
@@ -17,6 +18,7 @@ public class Country {
 
 	@Id
 	@Column(name = "Code")
+	@Pattern(regexp="^[A-Z]{3}", message="only 3 capital letters")
 	private String code;
 
 	@Column(name = "Name")

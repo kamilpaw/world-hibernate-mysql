@@ -2,8 +2,11 @@ package com.kpaw.world.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kpaw.world.entity.City;
-import com.kpaw.world.entity.Country;
 import com.kpaw.world.service.CityService;
 import com.kpaw.world.service.CountryService;
 
@@ -20,11 +22,9 @@ import com.kpaw.world.service.CountryService;
 public class CityController {
 
 	private CityService cityService;
-	private CountryService countryService;
 
 	public CityController(CityService theCityService, CountryService theCountryService) {
 		this.cityService = theCityService;
-		this.countryService = theCountryService;
 	}
 
 	@GetMapping("/list")
@@ -33,19 +33,21 @@ public class CityController {
 		theModel.addAttribute("cities", theCities);
 		return "cities/list-cities";
 	}
-	
+
 	@GetMapping("/addCity")
-	public String addCityForm() {
+	public String addCityForm(Model theModel) {
+		City theCity = new City();
+		theModel.addAttribute("city", theCity);
 		return "cities/city-form";
 	}
-	
+
 	@GetMapping("/updateCity")
 	public String updateCityForm(@RequestParam("cityId") int theId, Model theModel) {
 		City theCity = cityService.findById(theId);
 		theModel.addAttribute("city", theCity);
-		return "cities/cityUpdate-form";
+		return "cities/city-form";
 	}
-	
+
 	@GetMapping("/deleteCity")
 	public String deleteCityById(@RequestParam("cityId") int theId) {
 		cityService.deleteCityById(theId);
@@ -84,53 +86,16 @@ public class CityController {
 		theModel.addAttribute("cities", theCities);
 		return "cities/list-cities";
 	}
-	
+
 	@PostMapping("/saveCity")
-	public String saveCity(@RequestParam("name") String theName, @RequestParam("countryCode") String theCountryCode,
-			@RequestParam("district") String theDistrict, @RequestParam("population") int thePopulation) {
-		Country theCountry = countryService.findById(theCountryCode);
-		City theCity = new City(theName, theCountry, theDistrict, thePopulation);
-		cityService.save(theCity);
-		return "redirect:/cities/list";
+	public String saveCity(@ModelAttribute("city") @Valid City theCity, BindingResult bindingResult) {
+
+		if (bindingResult.hasErrors()) {
+			return "cities/city-form";
+		} else {
+			cityService.save(theCity);
+			return "redirect:/cities/list";
+		}
 	}
-	
-	@PostMapping("/saveUpdatedCity")
-	public String saveUpdatedCity(@ModelAttribute("city") City theCity) {
-		cityService.save(theCity);
-		return "redirect:/cities/list";
-	}
-	
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

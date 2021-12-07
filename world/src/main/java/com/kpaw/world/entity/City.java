@@ -9,6 +9,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 
 @Entity
 @Table(name = "city")
@@ -16,25 +20,32 @@ public class City {
 
 	@Id
 	@Column(name = "ID")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
+	@NotBlank(message="Name is required")
 	@Column(name = "Name")
 	private String name;
 
+	@NotNull(message="Wrong Country Code")
 	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE, CascadeType.DETACH })
 	@JoinColumn(name = "CountryCode")
 	private Country country;
 
+	@NotBlank(message="District is required")
 	@Column(name = "District")
 	private String district;
 
+	
+	@Positive(message="Population can't be negative number")
+	@Digits(integer = 9, fraction = 0, message="Invalid number")
+	@NotNull(message="Population is required")
 	@Column(name = "Population")
 	private Integer population;
-	
+
 	public City() {
-		
-	}	
+
+	}
 
 	public City(String name, Country country, String district, Integer population) {
 		this.name = name;
@@ -90,7 +101,5 @@ public class City {
 	public void setPopulation(Integer population) {
 		this.population = population;
 	}
-
-	
 
 }

@@ -25,6 +25,9 @@ public class CountryController {
 	public String showCountries(Model theModel) {
 		List<Country> theCountries = countryService.findAll();
 		theModel.addAttribute("countries", theCountries);
+		Country theCountry = countryService.findById("POL");
+		System.out.println("Poland: number of Cities: " + theCountry.getCities().size());
+		System.out.println("Poland: number of Languages: " + theCountry.getCountryLanguages().size());
 		return "countries/list-countries";
 	}
 
@@ -46,7 +49,7 @@ public class CountryController {
 			@RequestParam("surfaceFrom") String theSurfaceFrom, @RequestParam("surfaceTo") String theSurfaceTo,
 			@RequestParam("indFrom") String theIndFrom, @RequestParam("indTo") String theIndTo,
 			@RequestParam("popFrom") String thePopFrom, @RequestParam("popTo") String thePopTo,
-			@RequestParam("liExFrom") String theLiExFrom, @RequestParam("liExTo") String theLiExTo, Model theModel) throws NullPointerException {
+			@RequestParam("liExFrom") String theLiExFrom, @RequestParam("liExTo") String theLiExTo, Model theModel) {
 
 		if (theName.trim().isEmpty() && theRegion.trim().isEmpty() && theSurfaceFrom.trim().isEmpty()
 				&& theSurfaceTo.trim().isEmpty() && theIndFrom.trim().isEmpty() && theIndTo.trim().isEmpty()
@@ -66,7 +69,7 @@ public class CountryController {
 				System.out.println(e.getMessage());
 			}
 
-			throw new NullPointerException();
+			return "countries/advanced-search";
 		}
 
 	}
