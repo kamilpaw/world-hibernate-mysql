@@ -48,24 +48,24 @@ public class CityServiceImp implements CityService {
 	@Override
 	public void save(City theCity) {
 		cityRepository.save(theCity);
-		
+
 	}
 
 	@Override
 	public void deleteCityById(int theId) {
-		cityRepository.deleteById(theId);		
+		cityRepository.deleteById(theId);
 	}
 
 	@Override
 	public City findById(int theId) {
 		Optional<City> result = cityRepository.findById(theId);
 		City theCity = null;
-		if(result.isPresent()) {
+		if (result.isPresent()) {
 			theCity = result.get();
-		}else {
+		} else {
 			throw new RuntimeException("Did not find city id: " + theId);
 		}
-		
+
 		return theCity;
 	}
 

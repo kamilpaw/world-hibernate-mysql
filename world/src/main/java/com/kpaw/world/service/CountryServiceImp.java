@@ -54,22 +54,22 @@ public class CountryServiceImp implements CountryService {
 	public List<Country> advancedSearch(String theName, String theRegion, String surfaceFrom, String surfaceTo,
 			String indFrom, String indTo, String popFrom, String popTo, String liExFrom, String liExTo) {
 		try {
-		Double theSurfaceFrom = Double.valueOf(surfaceFrom);
-		Double theSurfaceTo = Double.valueOf(surfaceTo);
-		Short theIndFrom = Short.valueOf(indFrom);
-		Short theIndTo = Short.valueOf(indTo);
-		Integer thePopFrom = Integer.valueOf(popFrom);
-		Integer thePopTo = Integer.valueOf(popTo);
-		Double theLiExFrom = Double.valueOf(liExFrom);
-		Double theLiExTo = Double.valueOf(liExTo);
-		return countryRepository
-				.findByNameContainsAndRegionContainsAndSurfaceAreaGreaterThanEqualAndSurfaceAreaLessThanEqualAndIndepYearGreaterThanEqualAndIndepYearLessThanEqualAndPopulationGreaterThanEqualAndPopulationLessThanEqualAndLifeExpectancyGreaterThanEqualAndLifeExpectancyLessThanEqual(
-						theName, theRegion, theSurfaceFrom, theSurfaceTo, theIndFrom, theIndTo, thePopFrom, thePopTo,
-						theLiExFrom, theLiExTo);
-		} catch(Exception e) {
+			Double theSurfaceFrom = Double.valueOf(surfaceFrom);
+			Double theSurfaceTo = Double.valueOf(surfaceTo);
+			Short theIndFrom = Short.valueOf(indFrom);
+			Short theIndTo = Short.valueOf(indTo);
+			Integer thePopFrom = Integer.valueOf(popFrom);
+			Integer thePopTo = Integer.valueOf(popTo);
+			Double theLiExFrom = Double.valueOf(liExFrom);
+			Double theLiExTo = Double.valueOf(liExTo);
+			return countryRepository
+					.findByNameContainsAndRegionContainsAndSurfaceAreaGreaterThanEqualAndSurfaceAreaLessThanEqualAndIndepYearGreaterThanEqualAndIndepYearLessThanEqualAndPopulationGreaterThanEqualAndPopulationLessThanEqualAndLifeExpectancyGreaterThanEqualAndLifeExpectancyLessThanEqual(
+							theName, theRegion, theSurfaceFrom, theSurfaceTo, theIndFrom, theIndTo, thePopFrom,
+							thePopTo, theLiExFrom, theLiExTo);
+		} catch (Exception e) {
 			throw e;
 		}
-		
+
 	}
 
 	@Override
@@ -81,7 +81,7 @@ public class CountryServiceImp implements CountryService {
 		} else {
 			throw new RuntimeException("Did not find country code - " + theCountryCode);
 		}
-		
+
 		return theCountry;
 	}
 

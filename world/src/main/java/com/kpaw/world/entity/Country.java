@@ -18,7 +18,7 @@ public class Country {
 
 	@Id
 	@Column(name = "Code")
-	@Pattern(regexp="^[A-Z]{3}", message="only 3 capital letters")
+	@Pattern(regexp = "^[A-Z]{3}", message = "only 3 capital letters")
 	private String code;
 
 	@Column(name = "Name")
@@ -32,7 +32,7 @@ public class Country {
 
 	@Column(name = "IndepYear")
 	private Short indepYear;
-	
+
 	@Column(name = "Population")
 	private Integer population;
 
@@ -61,14 +61,12 @@ public class Country {
 	@Column(name = "Code2")
 	private String code2;
 
-	@OneToMany(mappedBy = "country",
-			cascade= {CascadeType.PERSIST, CascadeType.MERGE,
-			 CascadeType.DETACH, CascadeType.REFRESH})
+	@OneToMany(mappedBy = "country", cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH,
+			CascadeType.REFRESH })
 	private List<City> cities;
 
-	@OneToMany(mappedBy = "countryCode", 
-				cascade= {CascadeType.PERSIST, CascadeType.MERGE,
-				CascadeType.DETACH, CascadeType.REFRESH})
+	@OneToMany(mappedBy = "countryCode", cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH,
+			CascadeType.REFRESH })
 	private List<CountryLanguage> countryLanguages;
 
 	public Country() {
@@ -160,9 +158,5 @@ public class Country {
 	public List<CountryLanguage> getCountryLanguages() {
 		return countryLanguages;
 	}
-	
-	
-
-	
 
 }

@@ -58,7 +58,7 @@ public class CountryController {
 			return "redirect:/countries/list";
 
 		} else {
-			
+
 			try {
 				List<Country> theCountries = countryService.advancedSearch(theName, theRegion, theSurfaceFrom,
 						theSurfaceTo, theIndFrom, theIndTo, thePopFrom, thePopTo, theLiExFrom, theLiExTo);

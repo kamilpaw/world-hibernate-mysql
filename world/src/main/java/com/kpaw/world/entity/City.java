@@ -23,23 +23,22 @@ public class City {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	@NotBlank(message="Name is required")
+	@NotBlank(message = "Name is required")
 	@Column(name = "Name")
 	private String name;
 
-	@NotNull(message="Wrong Country Code")
+	@NotNull(message = "Wrong Country Code")
 	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE, CascadeType.DETACH })
 	@JoinColumn(name = "CountryCode")
 	private Country country;
 
-	@NotBlank(message="District is required")
+	@NotBlank(message = "District is required")
 	@Column(name = "District")
 	private String district;
 
-	
-	@Positive(message="Population can't be negative number")
-	@Digits(integer = 9, fraction = 0, message="Invalid number")
-	@NotNull(message="Population is required")
+	@Positive(message = "Population can't be negative number")
+	@Digits(integer = 9, fraction = 0, message = "Invalid number")
+	@NotNull(message = "Population is required")
 	@Column(name = "Population")
 	private Integer population;
 

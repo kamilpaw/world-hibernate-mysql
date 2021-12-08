@@ -7,9 +7,9 @@ public class CountryLanguageKey implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Country countryCode;
 	private String language;
-	
+
 	public CountryLanguageKey() {
-		
+
 	}
 
 	public CountryLanguageKey(Country countryCode, String language) {
@@ -36,7 +36,5 @@ public class CountryLanguageKey implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-
-	
 
 }

@@ -9,10 +9,10 @@ import com.kpaw.world.entity.CountryLanguageKey;
 
 public interface CountryLanguageRepository extends JpaRepository<CountryLanguage, CountryLanguageKey> {
 
-	public List<CountryLanguage> findByLanguageContainsAndCountryCodeNameContainsAllIgnoreCase
-	(String theLanguage, String theCountry);
+	public List<CountryLanguage> findByLanguageContainsAndCountryCodeNameContainsAllIgnoreCase(String theLanguage,
+			String theCountry);
 
 	public List<CountryLanguage> findAllByOrderByCountryCodeNameAsc();
-	
+
 	public List<CountryLanguage> findAllByOrderByLanguageAsc();
 }

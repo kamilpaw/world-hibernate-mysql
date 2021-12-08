@@ -79,7 +79,5 @@ public class CountryLanguage {
 	public void setPercentage(Double percentage) {
 		this.percentage = percentage;
 	}
-	
-	
 
 }
