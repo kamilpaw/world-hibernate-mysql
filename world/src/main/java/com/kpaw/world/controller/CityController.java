@@ -23,7 +23,7 @@ public class CityController {
 
 	private CityService cityService;
 
-	public CityController(CityService theCityService, CountryService theCountryService) {
+	public CityController(CityService theCityService) {
 		this.cityService = theCityService;
 	}
 
