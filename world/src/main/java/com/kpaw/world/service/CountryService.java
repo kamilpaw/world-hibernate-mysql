@@ -6,20 +6,20 @@ import com.kpaw.world.entity.Country;
 
 public interface CountryService {
 
-	public List<Country> findAll();
+	List<Country> findAll();
 
-	public List<Country> searchBy(String theCode, String theName, String theRegion);
+	List<Country> searchBy(String theCode, String theName, String theRegion);
 
-	public List<Country> orderByRegion();
+	List<Country> orderByRegion();
 
-	public List<Country> orderByName();
+	List<Country> orderByName();
 
-	public List<Country> orderBySurface();
+	List<Country> orderBySurface();
 
-	public List<Country> orderByCode();
+	List<Country> orderByCode();
 
-	public List<Country> advancedSearch(String theName, String theRegion, String surfaceFrom, String surfaceTo,
+	List<Country> advancedSearch(String theName, String theRegion, String surfaceFrom, String surfaceTo,
 			String indFrom, String indTo, String popFrom, String popTo, String liExFrom, String liExTo);
 
-	public Country findById(String theCountryCode);
+	Country findById(String theCountryCode);
 }

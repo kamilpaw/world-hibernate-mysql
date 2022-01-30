@@ -15,7 +15,7 @@ import com.kpaw.world.service.CountryService;
 @RequestMapping("/countries")
 public class CountryController {
 
-	private CountryService countryService;
+	private final CountryService countryService;
 
 	private CountryController(CountryService theCountryService) {
 		countryService = theCountryService;
@@ -25,7 +25,6 @@ public class CountryController {
 	public String showCountries(Model theModel) {
 		List<Country> theCountries = countryService.findAll();
 		theModel.addAttribute("countries", theCountries);
-		Country theCountry = countryService.findById("POL");
 		return "countries/list-countries";
 	}
 

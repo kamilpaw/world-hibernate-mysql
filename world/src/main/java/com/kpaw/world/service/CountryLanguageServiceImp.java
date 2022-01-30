@@ -11,7 +11,7 @@ import com.kpaw.world.entity.CountryLanguage;
 @Service
 public class CountryLanguageServiceImp implements CountryLanguageService {
 
-	private CountryLanguageRepository countryLanguageRepository;
+	private final CountryLanguageRepository countryLanguageRepository;
 
 	@Autowired
 	public CountryLanguageServiceImp(CountryLanguageRepository theCountryLanguageRepository) {

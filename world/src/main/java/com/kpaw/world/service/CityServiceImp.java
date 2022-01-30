@@ -12,7 +12,7 @@ import com.kpaw.world.entity.City;
 @Service
 public class CityServiceImp implements CityService {
 
-	private CityRepository cityRepository;
+	private final CityRepository cityRepository;
 
 	@Autowired
 	public CityServiceImp(CityRepository theCityRepository) {
@@ -59,7 +59,7 @@ public class CityServiceImp implements CityService {
 	@Override
 	public City findById(int theId) {
 		Optional<City> result = cityRepository.findById(theId);
-		City theCity = null;
+		City theCity;
 		if (result.isPresent()) {
 			theCity = result.get();
 		} else {

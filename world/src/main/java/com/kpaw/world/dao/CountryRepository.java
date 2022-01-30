@@ -1,25 +1,24 @@
 package com.kpaw.world.dao;
 
-import java.util.List;
-
+import com.kpaw.world.entity.Country;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.kpaw.world.entity.Country;
+import java.util.List;
 
 public interface CountryRepository extends JpaRepository<Country, String> {
 
-	public List<Country> findByCodeContainsAndNameContainsAndRegionContainsAllIgnoreCase(String theCode, String theName,
+	List<Country> findByCodeContainsAndNameContainsAndRegionContainsAllIgnoreCase(String theCode, String theName,
 			String theRegion);
 
-	public List<Country> findAllByOrderByRegionAsc();
+	List<Country> findAllByOrderByRegionAsc();
 
-	public List<Country> findAllByOrderByNameAsc();
+	List<Country> findAllByOrderByNameAsc();
 
-	public List<Country> findAllByOrderBySurfaceAreaAsc();
+	List<Country> findAllByOrderBySurfaceAreaAsc();
 
-	public List<Country> findAllByOrderByCodeAsc();
+	List<Country> findAllByOrderByCodeAsc();
 
-	public List<Country> findByNameContainsAndRegionContainsAndSurfaceAreaGreaterThanEqualAndSurfaceAreaLessThanEqualAndIndepYearGreaterThanEqualAndIndepYearLessThanEqualAndPopulationGreaterThanEqualAndPopulationLessThanEqualAndLifeExpectancyGreaterThanEqualAndLifeExpectancyLessThanEqual(
+	List<Country> findByNameContainsAndRegionContainsAndSurfaceAreaGreaterThanEqualAndSurfaceAreaLessThanEqualAndIndepYearGreaterThanEqualAndIndepYearLessThanEqualAndPopulationGreaterThanEqualAndPopulationLessThanEqualAndLifeExpectancyGreaterThanEqualAndLifeExpectancyLessThanEqual(
 			String theName, String theRegion, Double theSurfaceFrom, Double theSurfaceTo, Short theIndFrom,
 			Short theIndTo, Integer thePopFrom, Integer thePopTo, Double theLiExFrom, Double theLiExTo);
 

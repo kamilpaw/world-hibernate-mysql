@@ -9,7 +9,6 @@ public class CountryLanguageKey implements Serializable {
 	private String language;
 
 	public CountryLanguageKey() {
-
 	}
 
 	public CountryLanguageKey(Country countryCode, String language) {
